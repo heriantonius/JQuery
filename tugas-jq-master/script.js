@@ -3,30 +3,10 @@ const input = $("#input"),
   list = $("#lists"),
   buttonsort = $("#sort");
 
-let todo = [];
 
+$("button").on("click", function() {
+  var add = $('#input').val();
 
-buttonadd.click(add);
+  $("ul").append('<li>'+add+'</li>');
 
-if (todo.length) {
-  show();
-}
-
-function show() {
-  list.html("");
-  let content = "";
-  for (let i = 0; i < todo.length; i++) {
-    todo[i].date = new Date(todo[i].date);
-    content += `<li>${todo[i].text} | ${todo[i].date}${todo[i].completed}</li>`;
-    list.html(content);
-  }
-}
-function add() {
-  let val = input.val();
-  todo.push({
-    text: val,
-    date: new Date(),
-    completed: false,
-  });
-  show();
-}
+});
